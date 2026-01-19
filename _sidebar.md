@@ -3,4 +3,5 @@
 - **Dashboard Pages**
   - [Cluster Monitor](cluster-monitor/README.md)
   - [Query Time Analysis](query-time-plot/README.md)
+  - [Query Plan Viewer](query-plan-viewer/README.md)
   - [Load Test Results](load-test/README.md)

@@ -8,6 +8,7 @@ ClickForge is a toolkit for benchmarking ClickHouse query performance and monito
 
 - **Load Testing**: Run parameterized queries at scale and measure throughput, latency, and resource usage
 - **Query Time Analysis**: Visualize query performance over time from `system.query_log`
+- **Query Plan Viewer**: Analyze index filtering efficiency and compare schema strategies
 - **Cluster Monitoring**: Track table sizes, fragmentation, compression, and growth trends
 
 ## Quick Start
@@ -44,6 +45,15 @@ Visualize query performance metrics over time from `system.query_log`.
 - Filter by custom conditions (site, user, etc.)
 - Identify slow query patterns with heatmaps
 - Add deployment markers to correlate performance changes
+
+### [Query Plan Viewer](query-plan-viewer/README.md)
+
+Analyze how ClickHouse index filters progressively reduce data scanned.
+
+- Visualize index filtering stages (MinMax, Partition, PrimaryKey, Skip)
+- See granules and parts reduction at each stage
+- Compare different table schemas and index strategies
+- Identify opportunities for adding or improving indexes
 
 ### [Load Test Results](load-test/README.md)
 
