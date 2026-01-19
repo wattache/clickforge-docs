@@ -11,9 +11,64 @@
     :root {
       --theme-color: #f4b400;
     }
-    .sidebar-nav > ul > li > a {
-      font-weight: bold;
+
+    /* Sidebar navigation hierarchy */
+    .sidebar-nav ul {
+      padding-left: 0;
     }
+
+    /* Top-level items (Home, Setup Guide, section headers) */
+    .sidebar-nav > ul > li > a,
+    .sidebar-nav > ul > li > p {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #364149;
+    }
+
+    /* Section headers (bold text like "Dashboard Pages") */
+    .sidebar-nav > ul > li > p > strong {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #7f8c8d;
+      margin-top: 1.2rem;
+      margin-bottom: 0.4rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    /* Nested items (sub-pages) */
+    .sidebar-nav > ul > li > ul {
+      padding-left: 0.8rem;
+      margin-top: 0.2rem;
+    }
+
+    .sidebar-nav > ul > li > ul > li > a {
+      font-weight: 400;
+      font-size: 0.875rem;
+      color: #505d6b;
+      padding: 0.25rem 0;
+      display: block;
+    }
+
+    .sidebar-nav > ul > li > ul > li > a:hover {
+      color: var(--theme-color);
+    }
+
+    /* Active state for current page */
+    .sidebar-nav li.active > a {
+      color: var(--theme-color);
+      font-weight: 600;
+      border-right: 3px solid var(--theme-color);
+    }
+
+    /* Spacing between main sections */
+    .sidebar-nav > ul > li {
+      margin-bottom: 0.3rem;
+    }
+
     .markdown-section img {
       max-width: 100%;
       border: 1px solid #eee;
