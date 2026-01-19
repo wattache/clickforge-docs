@@ -1,0 +1,31 @@
+# ClickForge Load Test Configuration
+# Test QPS on Amazon Reviews dataset - products rated above 4 stars by category
+
+mode: load_test
+
+# Query template directory (relative to project root)
+query_root: examples/load-test
+
+# Query template (relative to query_root)
+query:
+  template: amazon_reviews_query.sql
+
+# Parameters - several samples per category
+parameters:
+    source: clickhouse
+    clickhouse:
+      service: primary
+      query: SELECT product_category FROM clickforge.amazon_reviews LIMIT 100
+
+# Number of parallel workers
+workers: 4
+
+# ClickHouse query settings
+settings:
+  max_threads: 4
+
+# Labels for organizing results
+labels:
+  test_type: "amazon_reviews_qps"
+  query_pattern: "highly_rated_by_category"
+  min_rating: "4"

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ClickForge Documentation</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="ClickForge - ClickHouse Performance Testing & Monitoring Dashboard">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <style>
+    :root {
+      --theme-color: #f4b400;
+    }
+    .sidebar-nav > ul > li > a {
+      font-weight: bold;
+    }
+    .markdown-section img {
+      max-width: 100%;
+      border: 1px solid #eee;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div id="app">Loading...</div>
+  <script>
+    window.$docsify = {
+      name: 'ClickForge',
+      repo: '',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      auto2top: true,
+      search: {
+        placeholder: 'Search documentation',
+        noData: 'No results found',
+        depth: 3
+      }
+    }
+  </script>
+  <!-- Docsify core -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- Search plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+  <!-- Code highlight -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-sql.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <!-- Image zoom -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
+</body>
+</html>

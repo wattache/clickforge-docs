@@ -1,0 +1,72 @@
+# ClickForge Load Test Configuration
+# Test QPS on Amazon Reviews dataset - products rated above 4 stars by category
+
+mode: load_test
+
+# Query template directory (relative to project root)
+query_root: examples/load-test
+
+# Query template (relative to query_root)
+query:
+  template: amazon_reviews_query.sql
+
+# Parameters - one query per category (43 queries total)
+parameters:
+  source: inline
+  inline:
+    - {product_category: "Video DVD"}
+    - {product_category: "Digital_Music_Purchase"}
+    - {product_category: "Outdoors"}
+    - {product_category: "Personal_Care_Appliances"}
+    - {product_category: "Home Entertainment"}
+    - {product_category: "Video"}
+    - {product_category: "Mobile_Electronics"}
+    - {product_category: "Video Games"}
+    - {product_category: "Sports"}
+    - {product_category: "Digital_Software"}
+    - {product_category: "Pet Products"}
+    - {product_category: "Beauty"}
+    - {product_category: "Kitchen"}
+    - {product_category: "Home Improvement"}
+    - {product_category: "Jewelry"}
+    - {product_category: "Baby"}
+    - {product_category: "Grocery"}
+    - {product_category: "Shoes"}
+    - {product_category: "Music"}
+    - {product_category: "Digital_Video_Download"}
+    - {product_category: "Musical Instruments"}
+    - {product_category: "Luggage"}
+    - {product_category: "Tools"}
+    - {product_category: "Camera"}
+    - {product_category: "Lawn and Garden"}
+    - {product_category: "Furniture"}
+    - {product_category: "Software"}
+    - {product_category: "Health & Personal Care"}
+    - {product_category: "Watches"}
+    - {product_category: "Books"}
+    - {product_category: "Digital_Ebook_Purchase"}
+    - {product_category: "Mobile_Apps"}
+    - {product_category: "Home"}
+    - {product_category: "Major Appliances"}
+    - {product_category: "Wireless"}
+    - {product_category: "Office Products"}
+    - {product_category: "Automotive"}
+    - {product_category: "Toys"}
+    - {product_category: "Electronics"}
+    - {product_category: "Digital_Video_Games"}
+    - {product_category: "Apparel"}
+    - {product_category: "PC"}
+    - {product_category: "Gift Card"}
+
+# Number of parallel workers
+workers: 4
+
+# ClickHouse query settings
+settings:
+  max_threads: 8
+
+# Labels for organizing results
+labels:
+  test_type: "amazon_reviews_qps"
+  query_pattern: "highly_rated_by_category"
+  min_rating: "4"
