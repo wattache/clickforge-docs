@@ -1,4 +1,5 @@
 - [Home](/)
+- [Setup Guide](SETUP.md)
 - **Dashboard Pages**
   - [Cluster Monitor](cluster-monitor/README.md)
   - [Query Time Analysis](query-time-plot/README.md)

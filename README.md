@@ -60,6 +60,8 @@ ClickForge reads ClickHouse connection settings from:
 - `.clickforge/clickhouse.yaml` (project-level)
 - `~/.clickforge/clickhouse.yaml` (user-level)
 
+See the **[Setup Guide](SETUP.md)** for detailed configuration instructions and example dataset setup.
+
 ## Coming Soon
 
 Full source code and installation instructions will be available soon. Stay tuned!
