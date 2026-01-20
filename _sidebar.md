@@ -4,4 +4,5 @@
   - [Cluster Monitor](cluster-monitor/README.md)
   - [Query Time Analysis](query-time-plot/README.md)
   - [Query Plan Viewer](query-plan-viewer/README.md)
+  - [Parts Visualizer](parts-visualizer/README.md)
   - [Load Test Results](load-test/README.md)
