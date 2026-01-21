@@ -22,6 +22,20 @@ The test:
 
 The test configuration is defined in [amazon_reviews_qps_test.yaml](amazon_reviews_qps_test.yaml).
 
+### Configuration Reference
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `mode` | Yes | Must be `load_test` for load testing |
+| `query_root` | Yes | Directory containing query template files |
+| `query` | Yes | Query template file path (relative to `query_root`) or inline SQL |
+| `parameters` | Yes | Parameter source configuration (see below) |
+| `workers` | No | Number of parallel workers (default: 10) |
+| `settings` | No | ClickHouse query settings |
+| `labels` | No | Metadata tags for organizing results |
+| `clickhouse_service_name` | No | ClickHouse service for query execution (default: `"default"`) |
+| `stats_clickhouse_service_name` | No | ClickHouse service for storing results (default: same as `clickhouse_service_name`) |
+
 ### Key Configuration Elements
 
 **Query Template** ([amazon_reviews_query.sql](amazon_reviews_query.sql)):

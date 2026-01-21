@@ -76,11 +76,13 @@ Analyze throughput, latency, and resource usage from load tests.
 
 ## Configuration
 
-ClickForge reads ClickHouse connection settings from:
-- `.clickforge/clickhouse.yaml` (project-level)
-- `~/.clickforge/clickhouse.yaml` (user-level)
+ClickForge reads ClickHouse connection settings from (in order of priority):
 
-See the **[Setup Guide](SETUP.md)** for detailed configuration instructions and example dataset setup.
+1. **Environment variables** - Pattern: `CLICKHOUSE_<SERVICE>_<FIELD>` (recommended for deployment)
+2. `.clickforge/clickhouse.yaml` (project-level)
+3. `~/.clickforge/clickhouse.yaml` (user-level)
+
+See the **[Setup Guide](SETUP.md)** for detailed configuration instructions, password options, and example dataset setup.
 
 ## Coming Soon
 

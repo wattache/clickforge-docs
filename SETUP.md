@@ -2,20 +2,71 @@
 
 ## ClickForge Configuration
 
-Create a ClickHouse connection configuration at `~/.clickforge/clickhouse.yaml`:
+ClickForge supports multiple configuration methods, checked in this order:
+
+1. **Environment variables** (recommended for deployment)
+2. `.clickforge/clickhouse.yaml` (project-level)
+3. `~/.clickforge/clickhouse.yaml` (user-level)
+
+### Option 1: Environment Variables (Recommended for Deployment)
+
+Define ClickHouse services using the pattern `CLICKHOUSE_<SERVICE>_<FIELD>`:
+
+```bash
+# Production service
+export CLICKHOUSE_PRODUCTION_HOST=prod.clickhouse.example.com
+export CLICKHOUSE_PRODUCTION_PORT=8443
+export CLICKHOUSE_PRODUCTION_USER=default
+export CLICKHOUSE_PRODUCTION_PASSWORD=secret
+export CLICKHOUSE_PRODUCTION_DATABASE=analytics
+export CLICKHOUSE_PRODUCTION_CLUSTER=default  # optional
+
+# Staging service
+export CLICKHOUSE_STAGING_HOST=staging.clickhouse.example.com
+export CLICKHOUSE_STAGING_PORT=8443
+export CLICKHOUSE_STAGING_USER=default
+export CLICKHOUSE_STAGING_PASSWORD=secret
+export CLICKHOUSE_STAGING_DATABASE=analytics
+```
+
+**Required fields:** `HOST`, `USER`, `PASSWORD`, `DATABASE`
+
+**Optional fields:** `PORT` (default: 8443), `CLUSTER` (default: "default")
+
+### Option 2: YAML Configuration File
+
+Create a configuration file at `~/.clickforge/clickhouse.yaml` or `.clickforge/clickhouse.yaml`:
 
 ```yaml
 my-clickhouse:
   host: your-clickhouse-host.com
   port: 8443
   user: your_user
-  password: your_password 
+  password: your_password
   database: clickforge
   cluster: default
 ```
 
-For production environments, you can use GCP Secret Manager to store passwords securely:
+### Password Configuration
 
+The `password` field supports three formats:
+
+**1. Literal string:**
+```yaml
+production:
+  host: prod.example.com
+  password: "my-secret-password"
+```
+
+**2. Environment variable reference** (for Kubernetes mounted secrets):
+```yaml
+production:
+  host: prod.example.com
+  password:
+    env: MY_CLICKHOUSE_PASSWORD
+```
+
+**3. GCP Secret Manager:**
 ```yaml
 production:
   host: prod.clickhouse.example.com
@@ -25,6 +76,7 @@ production:
     secret_manager: gcp
     project_id: my-project
     secret_name: clickhouse-password
+    version: latest  # optional
   database: clickforge
 ```
 
